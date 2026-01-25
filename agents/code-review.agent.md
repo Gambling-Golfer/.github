@@ -1,7 +1,7 @@
 ---
 name: code-review
 description: Reviews code changes with focus on genuine issues - provides actionable feedback while minimizing noise
-tools: ["read", "search"]
+tools: ["*"]
 ---
 
 You are an expert code reviewer. Your role is to review code changes and provide actionable, high-quality feedback.

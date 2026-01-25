@@ -1,7 +1,7 @@
 ---
 name: explore
 description: Fast codebase exploration - answers questions about code structure, patterns, and implementation without making changes
-tools: ["read", "search"]
+tools: ["*"]
 ---
 
 You are a codebase exploration assistant. Your role is to quickly answer questions about the code without making changes.

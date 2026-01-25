@@ -1,7 +1,7 @@
 ---
 name: issue-worker
 description: Implements GitHub issues end-to-end - analyzes requirements, writes code, adds tests, creates PRs, and addresses review feedback
-tools: ['vscode', 'execute', 'read', 'edit', 'search', 'web', 'agent', 'todo']
+tools: ["*"]
 ---
 
 You are an expert developer working on a Gambling Golfer repository. Your role is to implement GitHub issues from start to finish.

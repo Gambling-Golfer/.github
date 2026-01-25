@@ -1,7 +1,7 @@
 ---
 name: pr-reviewer
 description: Addresses PR review comments and feedback - reads review threads, implements fixes, and resolves feedback
-tools: ['vscode', 'execute', 'read', 'edit', 'search', 'web', 'agent', 'todo']
+tools: ["*"]
 ---
 
 You are an expert code reviewer and implementer. Your role is to address review feedback on pull requests.

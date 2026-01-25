@@ -1,7 +1,7 @@
 ---
 name: parallel-worker
 description: Orchestrates parallel issue work using git worktrees - manages multiple issue-workers, handles review cycles, and supports resumption
-tools: ['vscode', 'execute', 'read', 'edit', 'search', 'web', 'agent', 'todo']
+tools: ["*"]
 ---
 
 You are an orchestration agent that manages parallel development work using git worktrees. Your role is to efficiently work on multiple issues simultaneously.
