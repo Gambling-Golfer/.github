@@ -1,9 +1,11 @@
+---
+name: coding-standards
+description: Shared quality contract for the Gambling Golfer project. Use this when writing, reviewing, or fixing code to ensure consistent quality standards across implementation and review phases.
+---
+
 # Coding Standards — Gambling Golfer
 
-This document is the **shared quality contract** between implementation agents and code review. Both writing code and reviewing code should use these standards as the single source of truth.
-
-- **Implementation agents**: Use this as a checklist before committing.
-- **Review agents**: Use this as the criteria for evaluating code.
+This is the **shared quality contract** between implementation and review. Both writing and reviewing code should use these standards as the single source of truth.
 
 ---
 
@@ -16,8 +18,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] No memory leaks or retain cycles (especially in closures and delegates)
 - [ ] Error paths return or throw appropriately — no silent failures
 
----
-
 ## 2. Security (Critical)
 
 - [ ] All user input validated and sanitized before use
@@ -26,8 +26,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] Authentication/authorization checks present on protected endpoints/screens
 - [ ] Sensitive data (tokens, passwords) never logged, hardcoded, or exposed in responses
 - [ ] Secrets stored in environment variables / Keychain — never in source code
-
----
 
 ## 3. Type Safety (Important)
 
@@ -46,8 +44,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] `@MainActor` used for all UI-updating code
 - [ ] Proper use of `@State`, `@StateObject`, `@EnvironmentObject`, `@Observable`
 - [ ] `CodingKeys` used for snake_case → camelCase conversion when needed
-
----
 
 ## 4. Testing (Important)
 
@@ -68,8 +64,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] ViewModels tested independently of views
 - [ ] Async tests use `async throws` pattern with XCTest
 
----
-
 ## 5. API Design (Important)
 
 - [ ] Responses follow standard format: `{ success, data, meta }` or `{ success, error, meta }`
@@ -78,8 +72,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] Backwards compatibility maintained (or breaking changes documented)
 - [ ] Swagger `@openapi` annotations updated when endpoints change
 - [ ] iOS models in `Core/Models/` match backend DTOs
-
----
 
 ## 6. Code Quality (Moderate)
 
@@ -91,8 +83,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] Multi-step operations use transactions where appropriate
 - [ ] Parameters validated at function boundaries
 
----
-
 ## 7. Backend-Specific Rules
 
 - [ ] ES module imports use `.js` extensions (`import { foo } from './bar.js'`)
@@ -102,8 +92,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] Response helpers from `src/utils/response.ts` used for consistent responses
 - [ ] OpenAPI `@openapi` JSDoc annotations added for new/modified endpoints
 - [ ] Environment config accessed through Zod-validated config, not raw `process.env`
-
----
 
 ## 8. iOS-Specific Rules
 
@@ -117,8 +105,6 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] Dynamic Type and Dark Mode supported
 - [ ] Sensitive data stored in Keychain, preferences in UserDefaults
 - [ ] Strings localized via `Localizable.strings` — no hardcoded user-facing text
-
----
 
 ## 9. Style & Formatting (Low — Let Tooling Handle)
 

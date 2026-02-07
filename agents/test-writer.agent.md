@@ -1,6 +1,7 @@
 ---
 name: test-writer
 description: Testing specialist - writes and improves tests without modifying production code
+model: claude-sonnet-4
 tools: ["*"]
 ---
 

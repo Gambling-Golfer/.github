@@ -1,6 +1,7 @@
 ---
 name: explore
 description: Fast codebase exploration - answers questions about code structure, patterns, and implementation without making changes
+model: claude-haiku-4.5
 tools: ["*"]
 ---
 

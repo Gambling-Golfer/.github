@@ -165,19 +165,43 @@ Blocks: Gambling-Golfer/iOS#15
 
 ## Shared Agents
 
-This organization provides shared agents in `.github/agents/`:
+This organization provides shared agents in `.github/agents/`, each with an assigned default model tier:
 
-| Agent | Description |
-|-------|-------------|
-| `issue-worker` | Implements GitHub issues end-to-end |
-| `pr-reviewer` | Addresses PR review comments |
-| `code-review` | Reviews code with focus on genuine issues |
-| `test-writer` | Testing specialist |
-| `explore` | Fast codebase exploration |
-| `parallel-worker` | Orchestrates parallel work |
-| `merge-resolver` | Resolves merge conflicts |
+| Agent | Model | Description |
+|-------|-------|-------------|
+| `architect` | Opus 4.6 (premium) | Plans implementation — analyzes issues, explores code, produces detailed plans |
+| `code-review` | Opus 4.6 (premium) | Reviews code with focus on subtle bugs, security, and logic errors |
+| `implementer` | Sonnet 4 (standard) | Executes implementation plans — writes code, tests, and validates |
+| `issue-worker` | Sonnet 4 (standard) | Orchestrates issue work: architect → implementer → PR → review |
+| `pr-reviewer` | Sonnet 4 (standard) | Addresses PR review comments and feedback |
+| `test-writer` | Sonnet 4 (standard) | Testing specialist — writes and improves tests |
+| `parallel-worker` | Sonnet 4 (standard) | Orchestrates parallel work using git worktrees |
+| `explore` | Haiku 4.5 (fast) | Fast read-only codebase exploration |
+| `merge-resolver` | Haiku 4.5 (fast) | Resolves merge conflicts |
+
+### Model Tier Strategy
+
+- **Premium (Opus)**: Deep reasoning — architecture, planning, code review
+- **Standard (Sonnet)**: Code generation — implementation, fixes, tests, orchestration
+- **Fast (Haiku)**: Simple tasks — exploration, merge resolution
 
 Repositories can override these with repo-specific agents of the same name.
+
+---
+
+## Shared Skills
+
+Reusable instruction modules in `.github/skills/`:
+
+| Skill | Description |
+|-------|-------------|
+| `coding-standards` | Quality contract — correctness, security, type safety, testing, API design |
+| `ios-development` | iOS platform patterns, conventions, and validation commands |
+| `backend-development` | Backend platform patterns, conventions, and validation commands |
+| `self-review` | Pre-commit self-review checklist |
+| `git-workflow` | Commit conventions, PR creation, review workflow |
+
+Skills are loaded automatically by Copilot when relevant to the current task.
 
 ---
 

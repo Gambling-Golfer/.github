@@ -1,6 +1,7 @@
 ---
 name: merge-resolver
 description: Resolves merge conflicts between branches - fetches latest, identifies conflicts, resolves them intelligently, and commits
+model: claude-haiku-4.5
 tools: ["*"]
 ---
 
