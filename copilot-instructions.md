@@ -96,7 +96,7 @@ Always run these before completing work:
 
 - **Source of truth**: Swagger docs at `http://localhost:3000/api-docs`
 - iOS models in `iOS/GamblingGolfer/Core/Models/` must match backend DTOs
-- Use `CodingKeys` for snake_case → camelCase conversion in Swift
+- Use `CodingKeys` only when JSON field names differ from Swift property names (the backend uses camelCase — no snake_case conversion needed)
 
 ### When Backend Changes Affect iOS
 

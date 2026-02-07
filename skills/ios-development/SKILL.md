@@ -87,7 +87,7 @@ When writing iOS code, ensure:
 - [ ] `async/await` over Combine for new code
 - [ ] `// MARK: -` sections for file organization
 - [ ] Accessibility labels on interactive elements
-- [ ] `CodingKeys` for snake_case → camelCase conversion when needed
+- [ ] `CodingKeys` only when JSON field names differ from Swift property names (backend uses camelCase)
 - [ ] Sensitive data in Keychain, preferences in UserDefaults
 - [ ] Dynamic Type and Dark Mode supported
 

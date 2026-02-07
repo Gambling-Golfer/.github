@@ -43,7 +43,7 @@ This is the **shared quality contract** between implementation and review. Both 
 - [ ] Avoid `Any` type — use proper protocols or generics
 - [ ] `@MainActor` used for all UI-updating code
 - [ ] Proper use of `@State`, `@StateObject`, `@EnvironmentObject`, `@Observable`
-- [ ] `CodingKeys` used for snake_case → camelCase conversion when needed
+- [ ] `CodingKeys` used only when JSON field names differ from Swift property names (backend uses camelCase — no snake_case conversion needed)
 
 ## 4. Testing (Important)
 
