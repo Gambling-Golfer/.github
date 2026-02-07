@@ -65,7 +65,12 @@ When working in the iOS repo, also ensure:
 - Follow existing test patterns
 
 ### 6. Validate Your Changes
-- Run the project's validation command (e.g., `npm run validate`, `swift test`, or Xcode build)
+- **Run formatters and linters first** — these must pass before anything else:
+  - Backend: `npm run format && npm run lint:fix`
+  - iOS: `swiftformat . && swiftlint`
+- Run the project's validation/test command:
+  - Backend: `npm run validate`
+  - iOS: `xcodebuild build -scheme GamblingGolfer` + `xcodebuild test`
 - Fix any issues that arise
 - Ensure all tests pass
 

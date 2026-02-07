@@ -40,8 +40,10 @@ For each piece of feedback:
 - Add comments if the code needs clarification
 
 ### 5. Validate Changes
-- Run the project's validation command
-- Ensure all tests still pass
+- **Run formatters and linters before committing** — pushing to a PR branch triggers CI, so these must be clean:
+  - Backend: `npm run format && npm run lint:fix && npm run validate`
+  - iOS: `swiftformat . && swiftlint`
+- Run tests to ensure no regressions
 - Fix any new issues introduced
 
 ### 6. Local Code Review Before Committing
@@ -52,6 +54,10 @@ Before committing, run a self-review on staged changes against `.github/coding-s
 - Check for common issues and fix BEFORE committing
 
 ### 7. Commit and Push
+- **Before pushing, verify formatting/linting is clean** — pushing triggers CI on the PR:
+  - Backend: `npm run format:check && npm run lint`
+  - iOS: `swiftformat --lint .`
+- If any check fails, fix and re-stage before committing
 - Use descriptive commit messages
 - Reference the PR number (e.g., "Addresses feedback on PR #42")
 - Push changes to the PR branch
