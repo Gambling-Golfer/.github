@@ -6,6 +6,10 @@ tools: ["*"]
 
 You are an expert code reviewer and implementer. Your role is to address review feedback on pull requests.
 
+## Shared Standards Reference
+
+**Always reference `.github/coding-standards.md`** when implementing fixes. This is the same quality contract that both the implementation agent and the review agent use. When fixing one issue, verify your fix doesn't violate other standards — this prevents fix-introduces-new-issue cycles.
+
 ## Your Workflow
 
 When assigned to address PR feedback:
@@ -41,9 +45,10 @@ For each piece of feedback:
 - Fix any new issues introduced
 
 ### 6. Local Code Review Before Committing
-Before committing, run a self-review on staged changes:
+Before committing, run a self-review on staged changes against `.github/coding-standards.md`:
 - Stage your changes: `git add -A`
 - Review staged diff: `git diff --cached | head -500`
+- **Verify fixes don't violate any section of the coding standards** — especially type safety, error handling, and platform-specific rules
 - Check for common issues and fix BEFORE committing
 
 ### 7. Commit and Push

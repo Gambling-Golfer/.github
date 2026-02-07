@@ -24,6 +24,7 @@ When assigned an issue, follow this process:
 - Check related tests for expected behavior
 - Look at similar implementations for guidance
 - Read `.github/copilot-instructions.md` for project conventions
+- **Read `.github/coding-standards.md`** — this is the shared quality contract that code review will evaluate against. Internalize these standards before writing any code
 
 ### 3. Plan Your Implementation
 - Break down the work into logical steps
@@ -32,10 +33,30 @@ When assigned an issue, follow this process:
 - Think about test coverage needed
 
 ### 4. Implement the Solution
+- **Follow `.github/coding-standards.md`** — every item in sections 1–8 applies during implementation
 - Follow existing code conventions and patterns
 - Use proper typing (avoid `any` in TypeScript, avoid `Any` in Swift where possible)
 - Add appropriate error handling
 - Keep changes minimal and focused on the issue
+
+#### Backend Implementation Checklist
+When working in the backend repo, also ensure:
+- ES module imports use `.js` extensions
+- Imports ordered: builtin → external → internal
+- Zod schemas used for request validation
+- Database queries use parameterized `$1` placeholders
+- Response helpers used for consistent API responses
+- `@openapi` JSDoc annotations added for new/modified endpoints
+- Explicit return types on all functions
+
+#### iOS Implementation Checklist
+When working in the iOS repo, also ensure:
+- No force unwraps — use `guard let` or optional binding
+- `@MainActor` on UI-updating code
+- Large view bodies extracted into sub-views
+- `async/await` over Combine for new code
+- `// MARK: -` sections for file organization
+- Accessibility labels on interactive elements
 
 ### 5. Add Tests
 - Write unit tests for new functionality
@@ -48,17 +69,49 @@ When assigned an issue, follow this process:
 - Fix any issues that arise
 - Ensure all tests pass
 
-### 6.5. Pre-Commit Code Review
-Before committing, perform a self-review of staged changes to catch common issues:
+### 6.5. Pre-Commit Self-Review Against Coding Standards
+Before committing, perform a thorough self-review against `.github/coding-standards.md`:
 - Stage changes: `git add -A`
 - Review the diff: `git diff --cached | head -500`
-- Checklist:
-  - [ ] Proper imports/modules
-  - [ ] New code branches have test coverage
-  - [ ] Error handling follows existing patterns
-  - [ ] Documentation matches implementation
-  - [ ] No hardcoded values that should be configurable
-- Fix any issues BEFORE committing to reduce review iterations
+- **Run through every applicable section of `.github/coding-standards.md`**:
+
+#### Correctness (Critical — review blockers)
+- [ ] Null/undefined/nil handled — no unguarded access
+- [ ] Edge cases covered (empty, zero, boundary)
+- [ ] Error paths return or throw — no silent failures
+- [ ] No race conditions in async code
+
+#### Security (Critical — review blockers)
+- [ ] User input validated (Zod on backend, proper checks on iOS)
+- [ ] No SQL injection (parameterized queries only)
+- [ ] No hardcoded secrets or tokens
+- [ ] Auth checks on protected endpoints/screens
+
+#### Type Safety
+- [ ] Backend: no `any`, explicit return types, strict config respected
+- [ ] iOS: no force unwraps, no `Any`, `@MainActor` on UI code
+
+#### Testing
+- [ ] New code has test coverage
+- [ ] Tests cover happy path, errors, and edge cases
+- [ ] Tests are isolated and deterministic
+
+#### API Design (if endpoints changed)
+- [ ] Response format matches standard `{ success, data, meta }`
+- [ ] `API.md` and Swagger annotations updated
+- [ ] iOS models still match backend DTOs
+
+#### Code Quality
+- [ ] Functions are focused, not overly complex
+- [ ] Names are descriptive
+- [ ] No dead code or ignored errors
+- [ ] Documentation matches implementation
+
+#### Platform-Specific
+- [ ] Backend: `.js` imports, import ordering, Zod schemas, response helpers
+- [ ] iOS: sub-view extraction, `MARK` sections, accessibility, localized strings
+
+Fix any issues BEFORE committing to reduce review iterations.
 
 ### 7. Commit and Create PR
 - Use conventional commit messages:
