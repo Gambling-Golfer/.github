@@ -76,7 +76,7 @@ This document is the **shared quality contract** between implementation agents a
 - [ ] Error responses include `code` and `message` fields
 - [ ] Consistent naming conventions across endpoints
 - [ ] Backwards compatibility maintained (or breaking changes documented)
-- [ ] `API.md` and Swagger annotations updated when endpoints change
+- [ ] Swagger `@openapi` annotations updated when endpoints change
 - [ ] iOS models in `Core/Models/` match backend DTOs
 
 ---

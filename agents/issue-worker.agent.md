@@ -103,7 +103,7 @@ Before committing, perform a thorough self-review against `.github/coding-standa
 
 #### API Design (if endpoints changed)
 - [ ] Response format matches standard `{ success, data, meta }`
-- [ ] `API.md` and Swagger annotations updated
+- [ ] Swagger `@openapi` annotations updated
 - [ ] iOS models still match backend DTOs
 
 #### Code Quality

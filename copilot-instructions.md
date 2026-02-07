@@ -94,14 +94,14 @@ Always run these before completing work:
 
 ### API Contract
 
-- **Source of truth**: `backend/API.md` and Swagger at `http://localhost:3000/api-docs`
+- **Source of truth**: Swagger docs at `http://localhost:3000/api-docs`
 - iOS models in `iOS/GamblingGolfer/Core/Models/` must match backend DTOs
 - Use `CodingKeys` for snake_case → camelCase conversion in Swift
 
 ### When Backend Changes Affect iOS
 
 1. Update backend endpoint or DTO
-2. Update `backend/API.md` documentation
+2. Update Swagger `@openapi` annotations on the route handler
 3. Update corresponding iOS model in `Core/Models/`
 4. Update iOS service layer if request/response format changed
 5. Test end-to-end locally
@@ -202,7 +202,7 @@ Repositories can override these with repo-specific agents of the same name.
 
 - The iOS app consumes the backend REST API
 - Keep API contracts in sync between repos
-- Backend `API.md` is the source of truth for endpoints
+- Swagger at `/api-docs` is the source of truth for endpoints
 - iOS models should match backend DTOs
 - When making API changes, consider impact on both sides
 
